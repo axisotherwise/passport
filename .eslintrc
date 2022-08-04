@@ -9,7 +9,7 @@
   },
   "ignorePatterns": ["node_modules/"],
   "rules": {
-    "max-len": ["error", { "code": 90 }],
+    "max-len": ["error", { "code": 100 }],
     "semi": ["error", "always"],
     "quotes": ["error", "double"],
     "indent": ["error", 2],
