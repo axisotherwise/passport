@@ -1,7 +1,10 @@
 import express from "express";
 import morgan from "morgan";
+import passport from "passport";
 
 import authRoutes from "./routes/auth-route.js";
+
+import passportConfig from "./passport/index.js";
 
 import * as handler from "./middlewares/error-handler.js";
 
@@ -17,6 +20,8 @@ class App {
     this.app.use(morgan("dev"));
     this.app.use(express.json());
     this.app.use(express.urlencoded({ extended: true }));
+    this.app.use(passport.initialize());
+    passportConfig();
   }
   router() {
     this.app.use("/auth", authRoutes);

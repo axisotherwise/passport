@@ -1,6 +1,6 @@
 const readQuery = `
   SELECT 
-    email
+    email, password
   FROM user
   WHERE email = ?
 `;
