@@ -1,6 +1,9 @@
 import express from "express";
 import morgan from "morgan";
 import passport from "passport";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 import authRoutes from "./routes/auth-route.js";
 
@@ -17,7 +20,12 @@ class App {
   }
 
   middleware() {
-    this.app.use(morgan("dev"));
+    if (process.env.NODE_ENV) {
+      this.app.use(morgan("dev"));
+    } else {
+      this.app.use(morgan("combined"));
+    }
+    // this.app.use(morgan("dev"));
     this.app.use(express.json());
     this.app.use(express.urlencoded({ extended: true }));
     this.app.use(passport.initialize());

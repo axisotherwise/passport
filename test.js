@@ -1,1 +1,0 @@
-const include = [{ model: User }, { model: Comment }];
